@@ -1,0 +1,25 @@
+{
+    "files.associations": {
+        "type_traits": "cpp",
+        "ostream": "cpp",
+        "__bit_reference": "cpp",
+        "__functional_base": "cpp",
+        "algorithm": "cpp",
+        "atomic": "cpp",
+        "bitset": "cpp",
+        "chrono": "cpp",
+        "__memory": "cpp",
+        "functional": "cpp",
+        "iterator": "cpp",
+        "limits": "cpp",
+        "memory": "cpp",
+        "ratio": "cpp",
+        "system_error": "cpp",
+        "tuple": "cpp",
+        "vector": "cpp",
+        "array": "cpp",
+        "utility": "cpp",
+        "iostream": "cpp",
+        "locale": "cpp"
+    }
+}
