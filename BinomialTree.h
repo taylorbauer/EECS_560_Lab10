@@ -5,7 +5,11 @@
 class BinomialTree {
     public:
     BinomialTree();
+    BinomialTree(int value);
+    void print(int depth, Node* root);
+    int getDepth();
     Node* root;
+    int order;
 };
 
 #endif

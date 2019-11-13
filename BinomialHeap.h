@@ -5,9 +5,12 @@
 class BinomialHeap {
     public:
         BinomialHeap();
+        void print();
+        void insert(int value);
     private:
+        void mergeUp(int index, BinomialTree tree);
         int size;
-        BinomialTree arr[100];
+        BinomialTree arr[50];
 };
 
 #endif

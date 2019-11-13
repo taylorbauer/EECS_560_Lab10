@@ -30,6 +30,8 @@ void Menu::run() {
             cout << "What value would you like to insert (positive, unique integers only please): ";
             int insertion = 0;
             cin >> insertion;
+            heap.insert(insertion);
+            cout << "Successfully inserted " << insertion << " into the heap!\n";
             
         }
         else if (selection == 2) {
@@ -37,6 +39,7 @@ void Menu::run() {
         }
         else if (selection == 3) {
             cout << "Here is the heap in level-order:\n";
+            heap.print();
 
 
         }
