@@ -14,22 +14,29 @@ BinomialTree::BinomialTree(int value) {
     order = 0;
 }
 
-void BinomialTree::print(int depth, Node* root) {
-    cout << root->key << endl;
-    Node* temp = root->firstChild;
-    for (int i = 1; i < depth; i++) {
-        if (temp != nullptr) {
-            cout << temp->key << ' ';
-            Node* nextSibling = temp->rightSib;
-            while (nextSibling != nullptr) {
-                cout << nextSibling->key << ' ';
-                nextSibling = nextSibling->rightSib;
-            }
-        }
-        temp = temp->firstChild;
+void BinomialTree::print(int depth, Node* r) {
+    for (int i = 0; i < depth; i++) {
+        printLevel(r, i);
         cout << endl;
     }
     cout << "_______\n";
+}
+
+void BinomialTree::printLevel(Node* r, int level) {
+    if (r == nullptr) {
+        return;
+    }
+    if (level == 0) {
+        cout << r->key << ' ';
+    }
+    else {
+        Node* temp = r->firstChild;
+        while (temp != nullptr) {
+            printLevel(temp, level - 1);
+            temp = temp->rightSib;
+        }
+        
+    }
 }
 
 int BinomialTree::getDepth() {

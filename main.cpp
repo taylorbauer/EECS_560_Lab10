@@ -38,20 +38,23 @@ int main(int argc, char* argv[]) {
         myFile >> currentValue;
         valueCount ++;
     }
-
+    cout << "I think there are " << valueCount << " values\n";
     myFile.close();
     myFile.open(argv[1]);
 
     int tempArr[valueCount];
-    for (int i; i < valueCount; i++) {
+
+    for (int i = 0; i < valueCount; i++) {
         myFile >> tempArr[i];
+        cout << "I just read " << tempArr[i] << endl;
     }
     myFile.close();
 
     BinomialHeap heap;
 
     for (int i; i < valueCount; i++) {
-        // heap.insert(tempArr[i]);
+        cout << "\nINSERTING " << tempArr[i];
+        heap.insert(tempArr[i]);
     }
     
     Menu mainMenu(heap);
