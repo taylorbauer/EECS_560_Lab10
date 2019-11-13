@@ -1,15 +1,15 @@
 //
 //  Author: Taylor Bauer
-//  Date:   11.10.2019
+//  Date:   11.17.2019
 //          EECS 560
-//          Lab 09
+//          Lab 10
 //
 
 #include <iostream>
 #include <fstream>
 #include <chrono>
 #include "Menu.h"
-#include "MinSkewHeap.h"
+#include "BinomialHeap.h"
 
 
 using namespace std;
@@ -17,7 +17,7 @@ using namespace std;
 int main(int argc, char* argv[]) {
     if (argc != 2) {
         cout << "\nPlease make sure you are including a filename in the command line!\n";
-        cout << "Ex: ./Lab08 data.txt\n\n";
+        cout << "Ex: ./Lab10 data.txt\n\n";
         return 0;
     }
 
@@ -48,10 +48,10 @@ int main(int argc, char* argv[]) {
     }
     myFile.close();
 
-    MinSkewHeap heap;
+    BinomialHeap heap;
 
     for (int i; i < valueCount; i++) {
-        heap.insert(tempArr[i]);
+        // heap.insert(tempArr[i]);
     }
     
     Menu mainMenu(heap);
