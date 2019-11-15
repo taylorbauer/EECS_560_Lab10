@@ -14,6 +14,29 @@ BinomialTree::BinomialTree(int value) {
     order = 0;
 }
 
+BinomialTree::BinomialTree(Node* r) {
+    root = r;
+    order = 0;
+    Node* temp = root;
+    while (temp->firstChild != nullptr) {
+        order ++;
+        temp = temp->firstChild;
+    }
+}
+
+BinomialTree::~BinomialTree() {
+    while (root != nullptr) {
+        Node* temp = root;
+        while (temp->firstChild != nullptr) {
+            temp = temp->firstChild;
+        }
+        while (temp->rightSib != nullptr) {
+            temp = temp->rightSib;
+        }
+        delete temp;
+    }
+}
+
 void BinomialTree::print(int depth, Node* r) {
     for (int i = 0; i < depth; i++) {
         printLevel(r, i);

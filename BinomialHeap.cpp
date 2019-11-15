@@ -1,5 +1,7 @@
 #include "BinomialHeap.h"
 #include "BinomialTree.h"
+#include <iostream>
+using namespace std;
 
 BinomialHeap::BinomialHeap() {
     size = 0;
@@ -31,7 +33,7 @@ void BinomialHeap::mergeUp(int index, BinomialTree tree) {
         }
         tree.root->rightSib = arr[index].root->firstChild;  // Merge the two trees
         arr[index].root->firstChild = tree.root;
-        tree.order = tree.order + 1;                         // Increment the order
+        arr[index].order = arr[index].order + 1;                         // Increment the order
 
         tree = arr[index];                                   // Copy newly merge tree to call in recursion
 
@@ -41,4 +43,54 @@ void BinomialHeap::mergeUp(int index, BinomialTree tree) {
         mergeUp(index + 1, tree);                           // Keep on merging up
         return;
     }
+}
+
+void BinomialHeap::deleteMin() {
+    int minIndex = 0;
+    int minKey = 100000;                            // hacky
+    bool minFound = false;
+    for (int i = 0; i < 50; i++) {
+        if (arr[i].order != -1) {                   // As long as the tree isn't empty
+            if (arr[i].root->key < minKey) {
+                minFound = true;
+                minKey = arr[i].root->key;
+                minIndex = i;
+            }
+        }
+    }
+    if (!minFound) {
+        return;
+    }
+    else { 
+        int maxOrder = arr[minIndex].order;
+
+        BinomialTree tempTree = arr[minIndex];
+        BinomialTree emptyTree;
+        arr[minIndex] = emptyTree;
+        Node* sibling = nullptr;
+        Node** array = new Node*[maxOrder];
+
+        for (int i = 0; i < maxOrder; i++) { // Counting up to the order of the deleted tree, so from B0 to BK
+            sibling = tempTree.root->firstChild;
+            cout << "\ni = " << i << endl;
+            for (int j = 0; j < i; j ++) {
+                sibling = sibling->rightSib;
+            }
+            cout << "root of tree to be inserted is " << sibling->key << endl;
+
+            BinomialTree toBeMerged(sibling);
+            array[i] = toBeMerged.root;
+            // mergeUp(i, toBeMerged);
+
+        }
+
+        for (int i = 0; i < maxOrder; i++) {
+            cout << "Merging tree of root " << array[i]->key << " to index " << maxOrder - i - 1 << endl;
+            mergeUp(maxOrder - i - 1, array[i]);
+        }
+
+        delete[] array;
+    }
+
+    return;
 }

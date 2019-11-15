@@ -6,8 +6,11 @@ class BinomialTree {
     public:
     BinomialTree();
     BinomialTree(int value);
+    BinomialTree(Node* r);
+    ~BinomialTree();
     void print(int depth, Node* r);
     void printLevel(Node* r, int level);
+    void deleteMin();
     int getDepth();
     Node* root;
     int order;

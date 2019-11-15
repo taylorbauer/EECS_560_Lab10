@@ -7,6 +7,7 @@ class BinomialHeap {
         BinomialHeap();
         void print();
         void insert(int value);
+        void deleteMin();
     private:
         void mergeUp(int index, BinomialTree tree);
         int size;

@@ -35,7 +35,9 @@ void Menu::run() {
             
         }
         else if (selection == 2) {
-           
+           cout << "Deleting minimum value from the heap...\n";
+           heap.deleteMin();
+           cout << "Success!\n";
         }
         else if (selection == 3) {
             cout << "Here is the heap in level-order:\n";
