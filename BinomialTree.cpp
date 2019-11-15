@@ -1,3 +1,10 @@
+//
+//  Author: Taylor Bauer
+//  Date:   11.17.2019
+//          EECS 560
+//          Lab 10
+//
+
 #include "BinomialTree.h"
 #include "Node.h"
 #include <iostream>
